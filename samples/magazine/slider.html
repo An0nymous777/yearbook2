@@ -48,17 +48,18 @@ function loadApp() {
 	
 	// Create the flipbook
 
-	flipbook.turn({
+	function reloadpage(pagetype, scalefactorx, scalefactory){
+		flipbook.turn({
 
-			display: 'single',
+			display: pagetype,
 
 			// Magazine width
 
-			width: 461,
+			width: 461*scalefactorx,
 
 			// Magazine height
 
-			height: 600,
+			height: 600*scalefactory,
 
 			// Duration in millisecond
 
@@ -78,7 +79,7 @@ function loadApp() {
 
 			// The number of pages
 
-			pages: 12,
+			pages: 3,
 
 			// Events
 
@@ -122,9 +123,21 @@ function loadApp() {
 
 				}
 			}
+		});
+	}
 
-	});
+	var w = window.innerWidth;
+	var h = window.innerHeight;
+	console.log("height: ", h, "px");
+	console.log("width: ", w, "px");
+	if (w<=1000){
+		reloadpage('single', 1.6, 1.6);
+	}
+	else {
+		reloadpage('double', 3, 1.5);
+	}
 
+	
 	// Zoom.js
 
 	$('.magazine-viewport').zoom({
