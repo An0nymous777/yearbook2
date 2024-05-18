@@ -79,7 +79,7 @@ function loadApp() {
 
 			// The number of pages
 
-			pages: 3,
+			pages: 5,
 
 			// Events
 
@@ -130,7 +130,7 @@ function loadApp() {
 	var h = window.innerHeight;
 	console.log("height: ", h, "px");
 	console.log("width: ", w, "px");
-	if (w<=1000){
+	if (w/h <= 1){
 		reloadpage('single', 1.6, 1.6);
 	}
 	else {

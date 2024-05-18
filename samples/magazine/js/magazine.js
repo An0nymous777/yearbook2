@@ -2,6 +2,35 @@
  * Magazine sample
 */
 
+var w = window.innerWidth;
+var h = window.innerHeight;
+var boolean = true;
+if (w/h < 1.1) {
+	boolean = true;
+}else {
+	boolean = false;
+}
+
+console.log(boolean);
+
+function resize() {
+	w = window.innerWidth;
+	h = window.innerHeight;
+	console.log("height: ", h, "px");
+	console.log("width: ", w, "px");
+	if ((w/h < 1.1) && (boolean==false) ){
+		location.reload();
+		boolean = true;
+		console.log(boolean);
+	}
+	if ((w/h >= 1.1) && (boolean==true) ){
+		location.reload();
+		boolean = false;
+		console.log(boolean);
+	}
+  }
+  
+window.onresize = resize;
 function addPage(page, book) {
 
 	var id, pages = book.turn('pages');
